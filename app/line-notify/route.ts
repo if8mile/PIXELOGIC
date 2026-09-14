@@ -1,8 +1,8 @@
 import { NextResponse } from 'next/server';
 
 export async function GET() {
-  const LINE_TOKEN = rprocess.env.LINE_TOKEN;
-  const USER_ID = process.env.LINE_USER_ID;
+  const LINE_TOKEN = process.env.LINE_TOKEN!;
+  const USER_ID = process.env.LINE_USER_ID!;
 
   const url = "https://api.line.me/v2/bot/message/push";
 
