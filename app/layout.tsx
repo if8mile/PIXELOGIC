@@ -2,8 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { ThemeProvider } from '@/components/ThemeProvider';
 export const metadata: Metadata = {
-  title: 'Nara‘s Portfolio & Profile',
-  description: 'Nara‘s Portfolio & Profile',
+  title: 'ＰＩＸＥＬＯＧＩＣ.'
 };
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
