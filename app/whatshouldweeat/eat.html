@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>今天吃什麼？</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: #fffaf0; /* 溫暖的米色背景 */
+            color: #333;
+            text-align: center;
+            padding: 20px;
+            margin: 0;
+        }
+        .container {
+            max-width: 500px;
+            margin: 40px auto;
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+        }
+        h1 {
+            color: #ff6b6b;
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        .subtitle {
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 25px;
+        }
+        .step-box {
+            display: none;
+        }
+        .step-box.active {
+            display: block;
+        }
+        .btn {
+            background-color: #ff8b94;
+            color: white;
+            border: none;
+            padding: 14px 24px;
+            margin: 10px auto;
+            width: 100%;
+            font-size: 18px;
+            border-radius: 12px;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(255, 139, 148, 0.3);
+            transition: all 0.2s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-sizing: border-box;
+        }
+        .btn:hover {
+            background-color: #ff6b6b;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 107, 107, 0.4);
+        }
+        .btn-secondary {
+            background-color: #a8dadc;
+            box-shadow: 0 4px 10px rgba(168, 218, 220, 0.3);
+        }
+        .btn-secondary:hover {
+            background-color: #457b9d;
+            box-shadow: 0 6px 15px rgba(69, 123, 157, 0.4);
+        }
+        .btn-back {
+            background-color: #e5e5e5;
+            color: #666;
+            box-shadow: none;
+            font-size: 14px;
+            padding: 8px 16px;
+            width: auto;
+            margin: 20px auto 0 auto;
+            display: inline-flex;
+        }
+        .btn-back:hover {
+            background-color: #d4d4d4;
+            color: #333;
+            transform: none;
+        }
+        .result-card {
+            background-color: #f1faee;
+            border: 2px dashed #a8dadc;
+            padding: 20px;
+            border-radius: 12px;
+            margin: 20px 0;
+        }
+        .result-title {
+            font-size: 22px;
+            font-weight: bold;
+            color: #1d3557;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>🍽️ 今天吃什麼？</h1>
+    <div class="subtitle">讓宇宙給你一個方向，讓你不再迷路🤚🏼✋🏼</div>
+
+    <!-- Step 1: 飢餓程度 -->
+    <div id="step1" class="step-box active">
+        <p style="font-weight: bold; font-size: 18px;">Q1：今天有多餓？想怎麼吃？</p>
+        <button class="btn" onclick="selectHunger('大大吃')">🤤 大大吃（吃好一點/正餐）</button>
+        <button class="btn btn-secondary" onclick="selectHunger('小小吃')">🤏🏼 小小吃（隨便吃吃/墊肚子）</button>
+    </div>
+
+    <!-- Step 2: 料理大類 -->
+    <div id="step2" class="step-box">
+        <p style="font-weight: bold; font-size: 18px;" id="step2-question">Q2：想吃哪一國或哪一種類型？</p>
+        <div id="category-buttons"></div>
+        <button class="btn btn-back" onclick="goToStep(1)">⬅️ 上一步</button>
+    </div>
+
+    <!-- Step 3: 抽籤結果 -->
+    <div id="step3" class="step-box">
+        <div class="result-card">
+            <div style="font-size: 14px; color: #666; margin-bottom: 5px;">宇宙給你的指引是：</div>
+            <div class="result-title" id="result-name">載入中...</div>
+            <div id="map-btn-container"></div>
+        </div>
+        <button class="btn" onclick="spinAgain()">🎲 啊你不喜歡想耍賴就再抽一次</button>
+        <button class="btn btn-back" onclick="goToStep(2)">⬅️ 重新選分類</button>
+    </div>
+
+    <!-- 自己煮的結果 -->
+    <div id="step-cook" class="step-box">
+        <div class="result-card" style="background-color: #fdf0ed; border-color: #e07a5f;">
+            <div style="font-size: 20px; margin-bottom: 10px;">🚨 警告！</div>
+            <div class="result-title" style="color: #e07a5f;">別偷懶給我自己煮^_^</div>
+            <p style="font-size: 15px; color: #555;">來～我們去清冰箱，乖乖動手做飯飯～🍳</p>
+        </div>
+        <button class="btn" onclick="spinAgain()">🎲 啊你不喜歡想耍賴就再抽一次</button>
+        <button class="btn btn-back" onclick="goToStep(2)">⬅️ 重新選分類</button>
+    </div>
+</div>
+
+<script>
+    // 這裡可以隨時擴充妳們的口袋名單！格式是 "分類名稱": ["店家A", "店家B", "店家C"]
+    const database = {
+        "大大吃": {
+            "中式/台式": ["必比登台式合菜", "饗食天堂 旭集 吃到飽", "熱炒", "別偷懶給我自己煮^_^", "精緻台菜", "無菜單台菜", "創意台菜", "越料", "泰料"],
+            "日式": ["和牛燒肉", "無菜單日料", "板前料理", "那家不敢踏進去的高級居酒屋", "別偷懶給我自己煮^_^", "割烹料理", "懷石料理", "OMAKASE", "日式鐵板燒", "越料", "泰料"],
+            "美式/義式": ["美式餐酒館", "美式煙燻烤肉", "Fine Dining", "別偷懶給我自己煮^_^", "乾式熟成牛排", "BBQ", "手抓海鮮", "義式餐酒館", "手工義大利麵", "義式海鮮", "窯烤披薩", "越料", "泰料"]
+        },
+        "小小吃": {
+            "中式/台式": ["牛肉麵", "滷肉飯", "鹹酥雞", "串燒", "別偷懶給我自己煮^_^", "夜市", "便當", "黑白切", "麵店", "滷味", "鹽水雞", "水餃鍋貼", "越料", "泰料"],
+            "日式": ["章魚燒", "拉麵", "C/P值最高那家居酒屋生啤先上兩杯", "別偷懶給我自己煮^_^", "去夜市", "丼飯", "日式定食", "迴轉壽司", "燒鳥", "關東煮", "大阪燒", "越料", "泰料"],
+            "美式/義式": ["漢堡", "炸雞", "三明治 潛艇堡", "披薩", "義大利麵", "燉飯", "焗烤", "別偷懶給我自己煮^_^", "去夜市", "越料", "泰料"]
+        }
+    };
+
+    let currentHunger = "";
+    let currentCategory = "";
+
+    function goToStep(stepNum) {
+        document.querySelectorAll('.step-box').forEach(box => box.classList.remove('active'));
+        if (stepNum === 1) document.getElementById('step1').classList.add('active');
+        if (stepNum === 2) document.getElementById('step2').classList.add('active');
+        if (stepNum === 3) document.getElementById('step3').classList.add('active');
+    }
+
+    function selectHunger(hungerType) {
+        currentHunger = hungerType;
+        const categories = Object.keys(database[hungerType]);
+        const container = document.getElementById('category-buttons');
+        container.innerHTML = "";
+
+        categories.forEach(cat => {
+            const btn = document.createElement('button');
+            btn.className = "btn btn-secondary";
+            btn.innerText = cat;
+            btn.onclick = () => selectCategory(cat);
+            container.appendChild(btn);
+        });
+
+        document.getElementById('step2-question').innerText = `Q2：[ ${hungerType} ] 想吃哪一種類型？`;
+        goToStep(2);
+    }
+
+    function selectCategory(categoryName) {
+        currentCategory = categoryName;
+        spinResult();
+    }
+
+    function spinResult() {
+        const list = database[currentHunger][currentCategory];
+        const randomItem = list[Math.floor(Math.random() * list.length)];
+        
+        if (randomItem === "別偷懶給我自己煮^_^") {
+            document.querySelectorAll('.step-box').forEach(box => box.classList.remove('active'));
+            document.getElementById('step-cook').classList.add('active');
+        } else {
+            document.getElementById('result-name').innerText = randomItem;
+            
+            const mapContainer = document.getElementById('map-btn-container');
+            // 產生 Google Maps 搜尋連結
+            const mapUrl = `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(randomItem)}`;
+            mapContainer.innerHTML = `<a href="${mapUrl}" target="_blank" class="btn" style="background-color: #457b9d; font-size: 15px; padding: 12px 16px; margin-top: 15px; text-decoration: none;">🗺️ 一鍵打開 Google Maps 導航</a>`;
+            
+            goToStep(3);
+        }
+    }
+
+    function spinAgain() {
+        spinResult();
+    }
+</script>
+
+</body>
+</html>
