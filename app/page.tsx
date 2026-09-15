@@ -198,7 +198,7 @@ export default function Home() {
         <section id="portfolio" className="scroll-mt-24 space-y-8">
           <div className="space-y-2">
             <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Interactive Project</h2>
-            <h3 className="text-2xl font-bold">What to Eat? 🍽️</h3>
+            <h3 className="text-2xl font-bold">What Sould I Eat? 🍽️</h3>
           </div>
 
           <div className="max-w-xl mx-auto bg-white/70 dark:bg-slate-900/60 border border-stone-200/80 dark:border-slate-800 backdrop-blur-xl p-6 sm:p-8 rounded-3xl shadow-xl">
