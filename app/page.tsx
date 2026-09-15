@@ -98,6 +98,9 @@ export default function Home() {
                 <a href="#experience" className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg">
                   View Experience
                 </a>
+                <a href="#portfolio" className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg">
+                  Interactive Project
+                </a>
               </div>
             </div>
 
