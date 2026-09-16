@@ -286,7 +286,7 @@ export default function Home() {
                       rel="noopener noreferrer" 
                       className="w-full py-3 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100 hover:bg-stone-200 dark:bg-slate-800 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm inline-flex items-center justify-center text-sm no-underline"
                     >
-                      🗺️ 一鍵打開 Google Maps 導航
+                      🗺️ 一鍵開估咩
                     </a>
                   </div>
                 </div>
