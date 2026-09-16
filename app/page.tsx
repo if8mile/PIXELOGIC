@@ -57,13 +57,21 @@ export default function Home() {
     executeSpin(currentHunger, currentCategory);
   };
 
+  // 平滑捲動至指定區塊函式
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className="min-h-screen">
-      {/* 頂部導覽列 */}
-      <header className="flex justify-between items-center py-6 px-4 md:px-8 border-b border-stone-200/50 dark:border-slate-800/50">
-        <span className="text-xl font-black tracking-widest text-amber-700 dark:text-amber-500">
+      {/* 頂部導覽列：已加上 sticky top-0 z-50 與背景毛玻璃，捲動時會固定在上方 */}
+      <header className="sticky top-0 z-50 flex justify-between items-center py-4 px-6 md:px-8 border-b border-stone-200/50 dark:border-slate-800/50 bg-stone-50/80 dark:bg-slate-950/80 backdrop-blur-md">
+        <a href="/" className="text-xl font-black tracking-widest text-amber-700 dark:text-amber-500 hover:opacity-80 transition-opacity">
           PIXELOGIC.
-        </span>
+        </a>
 
         <span className="hidden md:inline-block text-xs font-semibold tracking-widest text-stone-400 dark:text-slate-500 uppercase">
           Based in Taiwan
@@ -82,7 +90,15 @@ export default function Home() {
             {/* 左側：文字與按鈕區塊 */}
             <div className="lg:col-span-7 space-y-6 lg:pb-4">
               <div className="space-y-3">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight">
+                <div className="space-y-1">
+                  <p className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight text-amber-700 dark:text-violet-400">
+                    Pixel 的美感，Logic 的架構 —
+                  </p>
+                  <p className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight text-stone-800 dark:text-slate-200">
+                    我們以理性邏輯與感性設計，賦予數位專案獨特的高質感。
+                  </p>
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight pt-2">
                   Hi, I’m <span className="text-amber-700 dark:text-violet-400">Nara</span>.
                 </h1>
                 <p className="text-xl md:text-2xl font-medium text-stone-600 dark:text-slate-300">
@@ -95,12 +111,18 @@ export default function Home() {
               </p>
 
               <div className="flex flex-wrap gap-4 pt-2">
-                <a href="#experience" className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg">
+                <button 
+                  onClick={() => scrollToSection('experience')} 
+                  className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg cursor-pointer"
+                >
                   View Experience
-                </a>
-                <a href="#portfolio" className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg">
+                </button>
+                <button 
+                  onClick={() => scrollToSection('portfolio')} 
+                  className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg cursor-pointer"
+                >
                   Interactive Project
-                </a>
+                </button>
               </div>
             </div>
 
@@ -213,13 +235,13 @@ export default function Home() {
                 <p className="font-bold text-base text-stone-800 dark:text-slate-200 text-center mb-4">Q1：今天有多餓？想怎麼吃？</p>
                 <button 
                   onClick={() => handleSelectHunger('大大吃')} 
-                  className="w-full py-3.5 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100/80 dark:bg-slate-800/80 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center"
+                  className="w-full py-3.5 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100/80 dark:bg-slate-800/80 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center cursor-pointer"
                 >
                   🤤 大大吃（吃好一點/正餐）
                 </button>
                 <button 
                   onClick={() => handleSelectHunger('小小吃')} 
-                  className="w-full py-3.5 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100/80 dark:bg-slate-800/80 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center"
+                  className="w-full py-3.5 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100/80 dark:bg-slate-800/80 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center cursor-pointer"
                 >
                   🤏🏼 小小吃（隨便吃吃/墊肚子）
                 </button>
@@ -237,14 +259,14 @@ export default function Home() {
                     <button 
                       key={cat} 
                       onClick={() => handleSelectCategory(cat)} 
-                      className="w-full py-3.5 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100/80 dark:bg-slate-800/80 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center"
+                      className="w-full py-3.5 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100/80 dark:bg-slate-800/80 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center cursor-pointer"
                     >
                       {cat}
                     </button>
                   ))}
                 </div>
                 <div className="text-center pt-2">
-                  <button onClick={() => setCurrentStep(1)} className="px-5 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+                  <button onClick={() => setCurrentStep(1)} className="px-5 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors cursor-pointer">
                     ⬅️ 上一步
                   </button>
                 </div>
@@ -269,11 +291,11 @@ export default function Home() {
                   </div>
                 </div>
                 <div className="space-y-2 pt-2">
-                  <button onClick={handleSpinAgain} className="w-full py-3 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center">
+                  <button onClick={handleSpinAgain} className="w-full py-3 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center cursor-pointer">
                     🎲 啊你不喜歡想耍賴就再抽一次
                   </button>
                   <div className="text-center">
-                    <button onClick={() => setCurrentStep(2)} className="px-5 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+                    <button onClick={() => setCurrentStep(2)} className="px-5 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors cursor-pointer">
                       ⬅️ 重新選分類
                     </button>
                   </div>
@@ -290,11 +312,11 @@ export default function Home() {
                   <p className="text-xs text-stone-600 dark:text-slate-300">來～我們去清冰箱，乖乖動手做飯飯～🍳</p>
                 </div>
                 <div className="space-y-2 pt-2">
-                  <button onClick={handleSpinAgain} className="w-full py-3 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center">
+                  <button onClick={handleSpinAgain} className="w-full py-3 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100 dark:bg-slate-800 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center cursor-pointer">
                     🎲 啊你不喜歡想耍賴就再抽一次
                   </button>
                   <div className="text-center">
-                    <button onClick={() => setCurrentStep(2)} className="px-5 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors">
+                    <button onClick={() => setCurrentStep(2)} className="px-5 py-2 rounded-lg text-xs font-medium text-stone-500 hover:text-stone-800 dark:text-slate-400 dark:hover:text-slate-200 transition-colors cursor-pointer">
                       ⬅️ 重新選分類
                     </button>
                   </div>
