@@ -152,7 +152,7 @@ export default function Home() {
             <div className="relative space-y-2">
               <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
-                <h4 className="text-lg font-bold">Digital Creator & Developer</h4>
+                <h4 className="text-lg font-bold">Digital Product Creator | UI/UX & Front-End Developer</h4>
                 <span className="text-xs text-stone-500 dark:text-slate-400">2025 — Present</span>
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">Freelancer</p>
