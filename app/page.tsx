@@ -751,7 +751,6 @@ export default function Home() {
     setAuthMsg('發送中...');
     const { error } = await supabase.auth.signInWithOtp({
       email: authEmail,
-      options: { emailRedirectTo: window.location.origin }
     });
 
     if (error) setAuthMsg(`登入失敗: ${error.message}`);
