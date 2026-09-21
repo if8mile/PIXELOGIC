@@ -70,7 +70,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
     note: ''
   });
 
-  const todayStr = new Date().toISOString().split('T')[0];
+  const todayStr = new Date().toLocaleDateString('en-CA');
 
   useEffect(() => {
     fetchAllData();
