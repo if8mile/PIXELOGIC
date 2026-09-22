@@ -260,48 +260,49 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
   }
 
   return (
-    <div className="bg-gradient-to-br from-emerald-50/80 via-teal-50/50 to-cyan-50/80 dark:from-slate-900 dark:via-emerald-950/30 dark:to-slate-900 p-6 md:p-8 rounded-3xl text-slate-800 dark:text-slate-100 relative shadow-xl border border-emerald-100 dark:border-slate-800 transition-colors">
-      
-      {/* 右上角：雲端同步狀態 + 登入/登出按鈕 */}
-      <div className="absolute top-6 right-6 z-10 flex items-center gap-2 flex-wrap justify-end">
-        {/* 雲端同步狀態 */}
-        <div className="flex items-center gap-1.5 bg-white/95 dark:bg-slate-800/90 backdrop-blur px-3 py-1.5 rounded-full shadow-sm border border-emerald-100 dark:border-slate-700 text-xs font-medium text-emerald-800 dark:text-emerald-300">
-          {savingStatus === 'saving' ? (
-            <>
-              <Cloud className="w-4 h-4 text-amber-500 animate-pulse" />
-              <span>儲存中...</span>
-            </>
-          ) : (
-            <>
-              <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
-              <span>{userEmail ? '已同步至雲端' : '已儲存在本機'}</span>
-            </>
-          )}
-        </div>
+<div className="bg-gradient-to-br from-emerald-50/80 via-teal-50/50 to-cyan-50/80 dark:from-slate-900 dark:via-emerald-950/30 dark:to-slate-900 p-6 md:p-8 rounded-3xl text-slate-800 dark:text-slate-100 relative shadow-xl border border-emerald-100 dark:border-slate-800 transition-colors">
+  
+  {/* 右上角：雲端同步狀態 + 登入/登出按鈕 */}
+  {/* 修改重點：手機版預設 mb-4 justify-center，桌機版 md:absolute md:top-6 md:right-6 md:mb-0 md:justify-end */}
+  <div className="flex items-center gap-2 flex-wrap justify-center mb-4 md:absolute md:top-6 md:right-6 md:mb-0 md:justify-end z-10">
+    {/* 雲端同步狀態 */}
+    <div className="flex items-center gap-1.5 bg-white/95 dark:bg-slate-800/90 backdrop-blur px-3 py-1.5 rounded-full shadow-sm border border-emerald-100 dark:border-slate-700 text-xs font-medium text-emerald-800 dark:text-emerald-300">
+      {savingStatus === 'saving' ? (
+        <>
+          <Cloud className="w-4 h-4 text-amber-500 animate-pulse" />
+          <span>儲存中...</span>
+        </>
+      ) : (
+        <>
+          <Check className="w-4 h-4 text-emerald-600 dark:text-emerald-400" />
+          <span>{userEmail ? '已同步至雲端' : '已儲存在本機'}</span>
+        </>
+      )}
+    </div>
 
-        {/* 登入/登出按鈕 */}
-        {user ? (
-          <div className="flex items-center gap-2">
-            <span className="hidden sm:inline-block text-xs text-emerald-800 dark:text-emerald-300 font-medium">
-              <User className="w-3.5 h-3.5 inline mr-1" />
-              {user.email}
-            </span>
-            <button
-              onClick={handleLogout}
-              className="px-3 py-1.5 rounded-full text-xs font-medium bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/60 border border-rose-200 dark:border-rose-800 transition-all flex items-center gap-1 cursor-pointer shadow-sm"
-            >
-              <LogOut className="w-3.5 h-3.5" /> 登出
-            </button>
-          </div>
-        ) : (
-          <button
-            onClick={onOpenAuthModal}
-            className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
-          >
-            <LogIn className="w-3.5 h-3.5" /> 登入專屬帳號
-          </button>
-        )}
+    {/* 登入/登出按鈕 */}
+    {user ? (
+      <div className="flex items-center gap-2">
+        <span className="hidden sm:inline-block text-xs text-emerald-800 dark:text-emerald-300 font-medium">
+          <User className="w-3.5 h-3.5 inline mr-1" />
+          {user.email}
+        </span>
+        <button
+          onClick={handleLogout}
+          className="px-3 py-1.5 rounded-full text-xs font-medium bg-rose-50 dark:bg-rose-950/40 text-rose-600 dark:text-rose-400 hover:bg-rose-100 dark:hover:bg-rose-900/60 border border-rose-200 dark:border-rose-800 transition-all flex items-center gap-1 cursor-pointer shadow-sm"
+        >
+          <LogOut className="w-3.5 h-3.5" /> 登出
+        </button>
       </div>
+    ) : (
+      <button
+        onClick={onOpenAuthModal}
+        className="px-3.5 py-1.5 rounded-full text-xs font-semibold bg-emerald-600 hover:bg-emerald-700 text-white shadow-sm transition-all flex items-center gap-1.5 cursor-pointer"
+      >
+        <LogIn className="w-3.5 h-3.5" /> 登入專屬帳號
+      </button>
+    )}
+  </div>
 
       <div className="max-w-2xl mx-auto space-y-8">
         {/* 標題與導覽列 */}
@@ -319,7 +320,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
           <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div className="text-xs sm:text-sm text-emerald-900/80 dark:text-emerald-200/90 leading-relaxed">
             <span className="font-semibold text-emerald-900 dark:text-emerald-300">Nara 的溫馨提醒：</span>
-            這是由 Nara 親手打造的個人成長森林。你的所有紀錄與心事都僅存放在你個人 Supabase 資料庫中，絕對不會被任何人存取，請安心灌溉。
+            這是由 Nara 親手打造的個人成長森林。你的所有紀錄與心事都僅存放在你的電腦或登入個人 Supabase 資料庫中，絕對不會被任何人存取，請安心灌溉。
           </div>
         </div>
 
@@ -347,7 +348,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
             onClick={() => setActiveTab('report')}
             className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all ${activeTab === 'report' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
           >
-            成就感
+            成就滿滿
           </button>
         </div>
 
@@ -374,12 +375,12 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
             <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur shadow-sm rounded-2xl p-6 border border-emerald-100 dark:border-slate-700 space-y-4">
               <h4 className="font-semibold text-emerald-900 dark:text-emerald-300 mb-2">今日森林灌溉</h4>
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                {/* 學習 */}
+                {/* 休息 */}
                 <button
                   onClick={() => updateRecord({ studied: !todayRecord.studied })}
                   className={`flex items-center justify-between p-4 rounded-xl border transition-all ${todayRecord.studied ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
-                  <span className="flex items-center gap-2 font-medium"><Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" /> 🎓 學習</span>
+                  <span className="flex items-center gap-2 font-medium"><Sparkles className="w-5 h-5 text-purple-600 dark:text-purple-400" /> 好好休息/放鬆</span>
                   {todayRecord.studied ? <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" /> : <Circle className="w-6 h-6 text-slate-300 dark:text-slate-600" />}
                 </button>
 
@@ -388,7 +389,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
                   onClick={() => updateRecord({ job_search: !todayRecord.job_search })}
                   className={`flex items-center justify-between p-4 rounded-xl border transition-all ${todayRecord.job_search ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
-                  <span className="flex items-center gap-2 font-medium"><Briefcase className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />  💻 求職</span>
+                  <span className="flex items-center gap-2 font-medium"><Droplets className="w-5 h-5 text-indigo-500 dark:text-indigo-400" />  喝水</span>
                   {todayRecord.job_search ? <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" /> : <Circle className="w-6 h-6 text-slate-300 dark:text-slate-600" />}
                 </button>
 
@@ -397,7 +398,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
                   onClick={() => updateRecord({ coded: !todayRecord.coded })}
                   className={`flex items-center justify-between p-4 rounded-xl border transition-all ${todayRecord.coded ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
-                  <span className="flex items-center gap-2 font-medium"><Code className="w-5 h-5 text-teal-600 dark:text-teal-400" /> ✍🏼 寫作業/工作</span>
+                  <span className="flex items-center gap-2 font-medium"><Code className="w-5 h-5 text-teal-600 dark:text-teal-400" /> 寫作業/工作</span>
                   {todayRecord.coded ? <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" /> : <Circle className="w-6 h-6 text-slate-300 dark:text-slate-600" />}
                 </button>
 
@@ -406,7 +407,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
                   onClick={() => updateRecord({ read_book: !todayRecord.read_book })}
                   className={`flex items-center justify-between p-4 rounded-xl border transition-all ${todayRecord.read_book ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
-                  <span className="flex items-center gap-2 font-medium"><BookOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-400" /> 📖 閱讀</span>
+                  <span className="flex items-center gap-2 font-medium"><BookOpen className="w-5 h-5 text-emerald-600 dark:text-emerald-400" /> 閱讀/學習</span>
                   {todayRecord.read_book ? <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" /> : <Circle className="w-6 h-6 text-slate-300 dark:text-slate-600" />}
                 </button>
 
@@ -415,7 +416,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
                   onClick={() => updateRecord({ exercised: !todayRecord.exercised })}
                   className={`flex items-center justify-between p-4 rounded-xl border transition-all ${todayRecord.exercised ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
-                  <span className="flex items-center gap-2 font-medium"><Dumbbell className="w-5 h-5 text-orange-500 dark:text-orange-400" /> 💪🏼 運動</span>
+                  <span className="flex items-center gap-2 font-medium"><Dumbbell className="w-5 h-5 text-orange-500 dark:text-orange-400" /> 運動/散步</span>
                   {todayRecord.exercised ? <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" /> : <Circle className="w-6 h-6 text-slate-300 dark:text-slate-600" />}
                 </button>
 
@@ -424,14 +425,14 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
                   onClick={() => updateRecord({ water_goal: !todayRecord.water_goal })}
                   className={`flex items-center justify-between p-4 rounded-xl border transition-all ${todayRecord.water_goal ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700 text-emerald-900 dark:text-emerald-200' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700 text-slate-600 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-800'}`}
                 >
-                  <span className="flex items-center gap-2 font-medium"><Droplets className="w-5 h-5 text-blue-500 dark:text-blue-400" /> 💧 喝水</span>
+                  <span className="flex items-center gap-2 font-medium"><Briefcase className="w-5 h-5 text-blue-500 dark:text-blue-400" /> 求職</span>
                   {todayRecord.water_goal ? <CheckCircle2 className="w-6 h-6 text-emerald-600 dark:text-emerald-400" /> : <Circle className="w-6 h-6 text-slate-300 dark:text-slate-600" />}
                 </button>
 
                 {/* 自訂項目 1 */}
                 <div className={`flex items-center justify-between p-3 rounded-xl border transition-all ${todayRecord.custom_1 ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700'}`}>
                   <div className="flex items-center gap-2 flex-1 mr-2">
-                    <Plus className="w-5 h-5 text-rose-500 shrink-0" />
+                    <Plus className="w-5 h-5 text-cyan-500 shrink-0" />
                     <input
                       type="text"
                       value={todayRecord.custom_1_name}
@@ -448,7 +449,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
                 {/* 自訂項目 2 */}
                 <div className={`flex items-center justify-between p-3 rounded-xl border transition-all ${todayRecord.custom_2 ? 'bg-emerald-50 dark:bg-emerald-950/50 border-emerald-300 dark:border-emerald-700' : 'bg-slate-50 dark:bg-slate-900/50 border-slate-200 dark:border-slate-700'}`}>
                   <div className="flex items-center gap-2 flex-1 mr-2">
-                    <Plus className="w-5 h-5 text-cyan-500 shrink-0" />
+                    <Plus className="w-5 h-5 text-rose-500 shrink-0" />
                     <input
                       type="text"
                       value={todayRecord.custom_2_name}
@@ -539,7 +540,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
               {/* 學習 */}
               <div className="bg-white/90 dark:bg-slate-800/90 p-5 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">學習</span>
+                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300"> 😌 好好休息/放鬆</span>
                   <span className="text-xl">{getPlantStage(totalStudied).emoji}</span>
                 </div>
                 <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{totalStudied} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">次</span></div>
@@ -549,7 +550,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
               {/* 求職 */}
               <div className="bg-white/90 dark:bg-slate-800/90 p-5 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">求職</span>
+                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">💧 喝水</span>
                   <span className="text-xl">{getPlantStage(totalJobSearch).emoji}</span>
                 </div>
                 <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{totalJobSearch} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">次</span></div>
@@ -559,7 +560,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
               {/* 寫作業/工作 */}
               <div className="bg-white/90 dark:bg-slate-800/90 p-5 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">寫作業/工作</span>
+                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">✍🏼 寫作業/工作</span>
                   <span className="text-xl">{getPlantStage(totalCoded).emoji}</span>
                 </div>
                 <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{totalCoded} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">次</span></div>
@@ -569,7 +570,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
               {/* 閱讀 */}
               <div className="bg-white/90 dark:bg-slate-800/90 p-5 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">閱讀</span>
+                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">📖 閱讀/學習</span>
                   <span className="text-xl">{getPlantStage(totalRead).emoji}</span>
                 </div>
                 <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{totalRead} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">天</span></div>
@@ -579,7 +580,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
               {/* 運動 */}
               <div className="bg-white/90 dark:bg-slate-800/90 p-5 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">運動</span>
+                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">💪🏼 運動/散步</span>
                   <span className="text-xl">{getPlantStage(totalExercised).emoji}</span>
                 </div>
                 <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{totalExercised} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">天</span></div>
@@ -589,7 +590,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
               {/* 喝水 */}
               <div className="bg-white/90 dark:bg-slate-800/90 p-5 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-2">
                 <div className="flex items-center justify-between">
-                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">喝水</span>
+                  <span className="text-sm font-bold text-emerald-900 dark:text-emerald-300">💻 求職</span>
                   <span className="text-xl">{getPlantStage(totalWater).emoji}</span>
                 </div>
                 <div className="text-2xl font-bold text-emerald-700 dark:text-emerald-400">{totalWater} <span className="text-xs font-normal text-slate-500 dark:text-slate-400">天</span></div>
@@ -664,7 +665,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
         {activeTab === 'timeline' && (
           <div className="space-y-6 animate-fadeIn">
             <h4 className="text-lg font-bold text-emerald-900 dark:text-emerald-300 flex items-center gap-2">
-              <Calendar className="w-5 h-5 text-emerald-600 dark:text-emerald-400" /> 👣 歷史足跡時間軸
+              <Calendar className="w-5 h-5 text-emerald-600 dark:text-emerald-400" /> 歷史足跡時間軸
             </h4>
             {allRecords.length === 0 ? (
               <div className="text-center py-12 text-slate-400 dark:text-slate-500 bg-white/50 dark:bg-slate-800/50 rounded-2xl">
@@ -704,7 +705,7 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
           </div>
         )}
 
-        {/* === PAGE 4: 成就感 === */}
+        {/* === PAGE 4: 成就滿滿 === */}
         {activeTab === 'report' && (
           <div className="space-y-6 animate-fadeIn">
             <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur p-6 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-3">
@@ -1022,7 +1023,7 @@ export default function Home() {
           <div className="max-w-xl mx-auto bg-white/70 dark:bg-slate-900/60 border border-stone-200/80 dark:border-slate-800 backdrop-blur-xl p-6 sm:p-8 rounded-3xl shadow-xl">
             <div className="text-center mb-6">
               <h4 className="text-xl font-extrabold text-amber-700 dark:text-violet-400 mb-1">今天吃什麼?</h4>
-              <p className="text-xs text-stone-500 dark:text-slate-400">讓宇宙給你好評價，讓你不再迷路</p>
+              <p className="text-xs text-stone-500 dark:text-slate-400">讓宇宙給你指引，讓你不再迷路🤚🏼✋🏼</p>
             </div>
 
             {currentStep === 1 && (
@@ -1038,7 +1039,7 @@ export default function Home() {
                   onClick={() => handleSelectHunger('小小吃')}
                   className="w-full py-3.5 px-6 rounded-xl font-medium text-stone-700 dark:text-slate-200 bg-stone-100/80 dark:bg-slate-800/80 hover:bg-stone-200 dark:hover:bg-slate-700 border border-stone-200 dark:border-slate-700 transition-all shadow-sm flex items-center justify-center cursor-pointer"
                 >
-                  🤤 小小吃（隨便吃吃/墊肚子）
+                  🤏🏼 小小吃（隨便吃吃/墊肚子）
                 </button>
               </div>
             )}
