@@ -105,7 +105,7 @@ function GrowthForestSection() {
         if (todayFound) setTodayRecord(todayFound);
       }
     } catch (error) {
-      console.error('載入資料失敗:', error);
+      console.error('載入資料失敗：', error);
     } finally {
       setLoading(false);
     }
@@ -128,7 +128,7 @@ function GrowthForestSection() {
       setAllRecords(parsed);
       setSavingStatus('saved');
     } catch (error) {
-      console.error('儲存紀錄失敗:', error);
+      console.error('儲存紀錄失敗：', error);
       setSavingStatus('saved');
     }
   }
@@ -216,7 +216,7 @@ function GrowthForestSection() {
             <TreePine className="w-7 h-7 text-emerald-600 dark:text-emerald-400" /> 成長森林
           </h3>
           <p className="text-sm text-emerald-700 dark:text-emerald-400/80">
-            今天是{todayStr},你今天也很努力喔!
+            今天是{todayStr}，你今天也很努力了喔！
           </p>
         </div>
 
@@ -224,8 +224,8 @@ function GrowthForestSection() {
         <div className="bg-emerald-900/5 dark:bg-emerald-500/10 border border-emerald-200/60 dark:border-emerald-500/20 rounded-2xl p-4 flex items-start gap-3 backdrop-blur-sm">
           <ShieldCheck className="w-5 h-5 text-emerald-600 dark:text-emerald-400 shrink-0 mt-0.5" />
           <div className="text-xs sm:text-sm text-emerald-900/80 dark:text-emerald-200/90 leading-relaxed">
-            <span className="font-semibold text-emerald-900 dark:text-emerald-300">Nara 的溫馨提醒：</span>
-            這是由 Nara 親手打造的個人成長森林。你的所有紀錄與心事都僅存放在你的裝置中，是你自己的秘密基地，請安心灌溉。
+            <span className="font-semibold text-emerald-900 dark:text-emerald-300">Nara的溫馨提醒：</span>
+            這是由Nara親手打造的個人成長森林。你的所有紀錄與心事都僅存放在你的裝置中，是你自己的秘密基地，請安心灌溉。
           </div>
         </div>
 
@@ -803,7 +803,7 @@ export default function Home() {
         <section id="portfolio" className="scroll-mt-24 space-y-12">
           <div className="space-y-2">
             <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Interactive Project</h2>
-            <h3 className="text-2xl font-bold">一個幫助使用者透過累積證明建立成就感、自信心與安全感的個人成長紀錄平台。</h3>
+            <h3 className="text-2xl font-bold">幫助使用者透過這個屬於自己的秘密基地累積打卡證明建立成就感、自信心與安全感，希望大家不要忽略自己每天的小小努力。</h3>
           </div>
 
           {/* 成長森林 */}
