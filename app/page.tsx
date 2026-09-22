@@ -328,25 +328,25 @@ function GrowthForestSection({ onOpenAuthModal, user, handleLogout }: GrowthFore
         <div className="flex justify-center gap-2 bg-white/80 dark:bg-slate-800/80 p-1.5 rounded-2xl shadow-sm border border-emerald-100 dark:border-slate-700 max-w-md mx-auto">
           <button
             onClick={() => setActiveTab('forest')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all ${activeTab === 'forest' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
+            className={`flex-1 py-2 px-2 h-16 sm:h-auto rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center justify-center [writing-mode:vertical-lr] sm:[writing-mode:horizontal-tb] ${activeTab === 'forest' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
           >
             森林走走
           </button>
           <button
             onClick={() => setActiveTab('proof')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all ${activeTab === 'proof' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
+            className={`flex-1 py-2 px-2 h-16 sm:h-auto rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center justify-center [writing-mode:vertical-lr] sm:[writing-mode:horizontal-tb] ${activeTab === 'proof' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
           >
-            進度證明
+            進度說明
           </button>
           <button
             onClick={() => setActiveTab('timeline')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all ${activeTab === 'timeline' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
+            className={`flex-1 py-2 px-2 h-16 sm:h-auto rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center justify-center [writing-mode:vertical-lr] sm:[writing-mode:horizontal-tb] ${activeTab === 'timeline' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
           >
             努力足跡
           </button>
           <button
             onClick={() => setActiveTab('report')}
-            className={`flex-1 py-2 px-3 rounded-xl text-xs sm:text-sm font-medium transition-all ${activeTab === 'report' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
+            className={`flex-1 py-2 px-2 h-16 sm:h-auto rounded-xl text-xs sm:text-sm font-medium transition-all flex items-center justify-center [writing-mode:vertical-lr] sm:[writing-mode:horizontal-tb] ${activeTab === 'report' ? 'bg-emerald-600 text-white shadow' : 'text-slate-600 dark:text-slate-300 hover:bg-emerald-50 dark:hover:bg-slate-700'}`}
           >
             成就滿滿
           </button>
