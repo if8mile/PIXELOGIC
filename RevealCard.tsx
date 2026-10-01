@@ -1,13 +1,18 @@
 'use client'; // Next.js 需要這行才能在瀏覽器端執行滑動監聽
 
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef, useState, ReactNode } from 'react';
 
-export default function RevealCard({ children }) {
+// 定義 props 的型別
+interface RevealCardProps {
+  children: ReactNode;
+}
+
+export default function RevealCard({ children }: RevealCardProps) {
   const [isVisible, setIsVisible] = useState(false);
-  const ref = useRef(null);
+  const ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    // 使用瀏覽器內建的 IntersectionObserver 來監聽卡片是否滑入畫面
+    // 使用瀏覽器內建的 IntersectionObserver
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -30,7 +35,6 @@ export default function RevealCard({ children }) {
   return (
     <div
       ref={ref}
-      // 這裡就是 Tailwind CSS 發揮魅力的地方：
       // duration-700 控制動畫長度，ease-out 讓動作有自然的減速感
       className={`transition-all duration-700 ease-out ${
         isVisible 
