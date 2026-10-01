@@ -1,5 +1,6 @@
 'use client';
 import Image from 'next/image';
+import RevealCard from '../RevealCard';
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from '../components/ThemeToggle';
 import {
@@ -685,6 +686,8 @@ export default function Home() {
       </header>
 
       <main className="max-w-6xl mx-auto px-6 space-y-32 py-12">
+      
+
         {/* 1. About/主視覺 Section */}
         <section id="about" className="min-h-[calc(100vh-5rem)] flex flex-col justify-between py-12">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end my-auto">
@@ -706,7 +709,7 @@ export default function Home() {
                 </p>
               </div>
               <p className="max-w-2xl text-base text-stone-600 dark:text-slate-400 leading-relaxed">
-                從跨國專案營運到數位產品創作，我習慣用嚴謹的邏輯拆解問題，再用簡潔的介面與程式將想法實現。熱衷於探索AI協作開發與極簡視覺，致力於打造直覺且富有價值的數位體驗。
+              從國小自學電腦拆裝到國中初探HTML，網頁與科技始終是我最渴望探索的領域。曾因『資工需要頂尖數學』的迷思而走向不同的專業，但在累積了數年不同產業及跨國工程專案管理的實戰經驗後，我發現自己最享受的依然是梳理複雜邏輯與解決問題的過程。2024年我決定重新擁抱當初對程式的熱忱，將過去磨練出的嚴謹專案控管與跨部門溝通能力，轉化為打造流暢數位體驗的前端開發技術。
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <button
@@ -733,14 +736,21 @@ export default function Home() {
             </div>
           </div>
         </section>
+    
+      {/* 1. About/主視覺 Section*/}
+      
 
-        {/* 2. Experience/經歷 Section */}
-        <section id="experience" className="scroll-mt-24 space-y-8">
-          <div className="space-y-2">
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Career History</h2>
-            <h3 className="text-2xl font-bold">Experience</h3>
-          </div>
-          <div className="space-y-8 border-l-2 border-stone-200 dark:border-slate-800 pl-6">
+      {/* 2. Experience/經歷 Section */}
+      <section id="experience" className="scroll-mt-24 space-y-8">
+        <div className="space-y-2">
+          <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Career History</h2>
+          <h3 className="text-2xl font-bold">Experience & Education</h3> 
+        </div>
+        
+        <div className="space-y-8 border-l-2 border-stone-200 dark:border-slate-800 pl-6">
+          
+          {/* 區塊 1：Freelancer */}
+          <RevealCard>
             <div className="relative space-y-2">
               <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
@@ -752,6 +762,55 @@ export default function Home() {
                 運用 AI 協作工具與 Next.js 現代網頁技術，獨立進行數位產品開發與 UI/UX 介面實作，專注於打造極簡且高效能的網頁體驗。
               </p>
             </div>
+          </RevealCard>
+
+          {/* 區塊 2：2026 六角學院 */}
+          <RevealCard>
+            <div className="relative space-y-2">
+              <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
+                <h4 className="text-lg font-bold">課程－30天軟體工程師體驗營</h4>
+                <span className="text-xs text-stone-500 dark:text-slate-400">2026</span>
+              </div>
+              <p className="text-xs font-medium text-amber-700 dark:text-violet-400">六角學院</p>
+              <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
+                投入密集訓練，建立前端開發基礎概念與實作現代網頁架構。透過實務任務培養程式邏輯思維與獨立解決技術問題的能力。
+              </p>
+            </div>
+          </RevealCard>
+
+          {/* 區塊 3：2024 六角學院 Hexo */}
+          <RevealCard>
+            <div className="relative space-y-2">
+              <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
+                <h4 className="text-lg font-bold">課程－Hexo 從零打造個人品牌網站</h4>
+                <span className="text-xs text-stone-500 dark:text-slate-400">2024</span>
+              </div>
+              <p className="text-xs font-medium text-amber-700 dark:text-violet-400">六角學院</p>
+              <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
+                初次實作個人品牌網站，學習靜態網站生成器架構與自動化部署流程，進一步確立專注於前端網頁開發的學習目標。
+              </p>
+            </div>
+          </RevealCard>
+
+          {/* 區塊 4：2024 台大訓練班 */}
+          <RevealCard>
+            <div className="relative space-y-2">
+              <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
+                <h4 className="text-lg font-bold">課程－Python資訊系統訓練班</h4>
+                <span className="text-xs text-stone-500 dark:text-slate-400">2024</span>
+              </div>
+              <p className="text-xs font-medium text-amber-700 dark:text-violet-400">國立臺灣大學</p>
+              <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
+                初探程式基礎邏輯與軟體運作環境，開啟對資訊科技與網頁開發領域的學習契機。
+              </p>
+            </div>
+          </RevealCard>
+
+          {/* 區塊 5：AFRY */}
+          <RevealCard>
             <div className="relative space-y-2">
               <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
@@ -760,9 +819,13 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">AFRY (Thailand) Ltd.</p>
               <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                統籌工程專案辦公室營運與預算數據維護，執行嚴謹的文件版控 （Document Control），並支援外籍工程團隊在地化營運，維護跨國團隊高效合作。
+                統籌工程專案辦公室營運與預算數據維護，執行嚴謹的文件控管，並支援外籍工程團隊在地化營運，維護跨國團隊高效合作。
               </p>
             </div>
+          </RevealCard>
+
+          {/* 區塊 6：GE Vernova */}
+          <RevealCard>
             <div className="relative space-y-2">
               <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
@@ -774,6 +837,10 @@ export default function Home() {
                 擔任 GE 通霄電廠專案行政主管，運用數據分析輔助管理層預算維護與營運決策；優化供應商採購流程並統籌外籍工程團隊後勤，顯著提升跨國團隊合作效率。
               </p>
             </div>
+          </RevealCard>
+
+          {/* 區塊 7：Marubeni */}
+          <RevealCard>
             <div className="relative space-y-2">
               <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
               <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
@@ -785,19 +852,13 @@ export default function Home() {
                 擔任機械工程團隊行政，負責每日技術文件控管與現場施工紀錄彙整；作為日商團隊與外包廠商之溝通橋樑，精準傳遞工程資訊並協助主管掌握施工進度。
               </p>
             </div>
-            <div className="relative space-y-2">
-              <div className="absolute -left-[31px] top-1.5 w-3 h-3 rounded-full bg-amber-700 dark:bg-violet-500 border-4 border-stone-50 dark:border-slate-950"></div>
-              <div className="flex flex-col sm:flex-row sm:items-center justify-between text-sm">
-                <h4 className="text-lg font-bold">Assistant Property Operations Manager</h4>
-                <span className="text-xs text-stone-500 dark:text-slate-400">2020 - 2021</span>
-              </div>
-              <p className="text-xs font-medium text-amber-700 dark:text-violet-400">Property Management</p>
-              <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                負責社區總體營運、財務收支報告與廠商合約管理；作為住戶與管委會之溝通樞紐，協調各方訴求並統籌活動規劃，確保服務品質與住戶滿意度。
-              </p>
-            </div>
-          </div>
-        </section>
+            </RevealCard>
+
+
+
+</div>
+      </section>
+ 
 
         {/* 3. Portfolio/互動小工具 Section */}
         <section id="portfolio" className="scroll-mt-24 space-y-12">
@@ -926,7 +987,7 @@ export default function Home() {
             </a>
           </div>
         </section>
-      </main>
+        </main>
 
       {/* 頁尾 Footer */}
       <footer className="border-t border-stone-200 dark:border-slate-800/80 py-8 text-center text-xs text-stone-500 dark:text-slate-500">
