@@ -12,9 +12,9 @@ import {
 // 抽籤資料庫
 const embedDatabase: Record<string, Record<string, string[]>> = {
   "大大吃": {
-    "中式/台式": ["台式家常菜", "饗食天堂旭集", "熱炒", "別偷懶給我自己煮^_^", "台灣料理", "客家料理", "原住民料理", "古早味料理", "烤鴨三吃", "薑母鴨", "羊肉爐"],
+    "中式/台式": ["台式家常菜", "饗食天堂旭集", "熱炒", "別偷懶給我自己煮^_^", "台灣料理", "客家料理", "原住民料理", "古早味料理", "烤鴨三吃", "薑母鴨", "羊肉爐", "炒飯／炒麵"],
     "日式": ["日式燒肉", "居酒屋", "定食", "日式家庭料理", "別偷懶給我自己煮^_^", "壽司", "拉麵/沾麵", "烏龍麵/蕎麥麵", "日式豬排", "日式鍋物", "日式咖哩", "鰻魚飯", "沖繩料理"],
-    "其他異國料理": ["美式餐廳", "美式漢堡", "美式牛排", "別偷懶給我自己煮^_^", "美式炸雞", "窯烤披薩", "義大利麵", "燉飯", "義式披薩", "泰式料理", "泰北料理", "泰式火鍋", "船麵", "泰式燒烤"]
+    "其他異國料理": ["美式餐廳", "美式漢堡", "美式牛排", "別偷懶給我自己煮^_^", "美式炸雞", "窯烤披薩", "義大利麵", "燉飯", "義式披薩", "泰式料理", "泰北料理", "泰式火鍋", "船麵", "泰式燒烤", "印度料理"]
   },
   "小小吃": {
     "中式/台式": ["便當", "水餃/鍋貼", "牛肉麵", "滷肉飯", "鹹酥雞", "串燒", "別偷懶給我自己煮^_^", "i珍食/友善食光", "永和豆漿", "百元小火鍋", "鍋燒意麵", "雞肉飯", "夜市", "麻辣鴨血臭豆腐", "炸的那種臭豆腐", "麵線", "羹麵/羹飯", "藥燉排骨", "生煎包", "擔仔麵", "肉圓", "碗粿", "蔥抓餅", "大腸包小腸", "潤餅", "炒麵", "蒸餃", "筒仔米糕", "羊肉炒麵", "滷味", "鹽水雞"],
@@ -595,7 +595,7 @@ function GrowthForestSection() {
                 本週累積總紀錄天數: <span className="font-bold text-emerald-700 dark:text-emerald-400">{allRecords.length}天</span>
               </p>
               <div className="p-3 bg-emerald-50 dark:bg-emerald-950/50 text-emerald-800 dark:text-emerald-200 rounded-xl text-sm font-medium">
-                你正在穩定成長中,每一步都有跡可循!
+                你正在穩定成長中，每一步都有跡可循!
               </div>
             </div>
             <div className="bg-white/90 dark:bg-slate-800/90 backdrop-blur p-6 rounded-2xl border border-emerald-100 dark:border-slate-700 shadow-sm space-y-4">
@@ -709,7 +709,7 @@ export default function Home() {
                 </p>
               </div>
               <p className="max-w-2xl text-base text-stone-600 dark:text-slate-400 leading-relaxed">
-              從國小自學電腦拆裝到國中初探HTML，網頁與科技始終是我最渴望探索的領域。曾因『資工需要頂尖數學』的迷思而走向不同的專業，但在累積了數年不同產業及跨國工程專案管理的實戰經驗後，我發現自己最享受的依然是梳理複雜邏輯與解決問題的過程。2024年我決定重新擁抱當初對程式的熱忱，將過去磨練出的嚴謹專案控管與跨部門溝通能力，轉化為打造流暢數位體驗的前端開發技術。
+              從國小自學電腦拆裝到國中初探HTML，網頁與科技始終是我最渴望探索的領域。曾因「資工需要頂尖數學」的迷思而走向不同的專業，但在累積了數年不同產業及跨國工程專案管理的實戰經驗後，我發現自己最享受的依然是梳理複雜邏輯與解決問題的過程。2024年我決定重新擁抱當初對程式的熱忱，將過去磨練出的嚴謹專案控管與跨部門溝通能力，轉化為打造流暢數位體驗的前端開發技術。
               </p>
               <div className="flex flex-wrap gap-4 pt-2">
                 <button
@@ -834,7 +834,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">GE Vernova</p>
               <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                擔任 GE 通霄電廠專案行政主管，運用數據分析輔助管理層預算維護與營運決策；優化供應商採購流程並統籌外籍工程團隊後勤，顯著提升跨國團隊合作效率。
+                擔任 GE 通霄電廠專案行政主管，運用數據分析輔助管理層預算維護與營運決策；優化供應商採購流程並統籌外籍工程團隊後勤。
               </p>
             </div>
           </RevealCard>
@@ -849,7 +849,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">Marubeni Corporation</p>
               <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                擔任機械工程團隊行政，負責每日技術文件控管與現場施工紀錄彙整；作為日商團隊與外包廠商之溝通橋樑，精準傳遞工程資訊並協助主管掌握施工進度。
+                擔任機械工程團隊行政，負責每日技術文件控管與現場施工紀錄彙整；作為日商團隊與外包廠商之溝通橋樑，傳遞工程資訊並協助主管掌握施工進度。
               </p>
             </div>
             </RevealCard>
