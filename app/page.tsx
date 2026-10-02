@@ -759,7 +759,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">Freelancer</p>
               <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                運用 AI 協作工具與 Next.js 現代網頁技術，獨立進行數位產品開發與 UI/UX 介面實作，專注於打造極簡且高效能的網頁體驗。
+                運用 AI 協作工具與 Next.js 現代網頁技術，從產品概念、UI/UX 設計到前端實作，獨立進行數位產品開發與迭代。
               </p>
             </div>
           </RevealCard>
@@ -819,7 +819,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">AFRY (Thailand) Ltd.</p>
               <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                統籌工程專案辦公室營運與預算數據維護，執行嚴謹的文件控管，並支援外籍工程團隊在地化營運，維護跨國團隊高效合作。
+              工程專案營運、預算資料與文件控管，支援跨國工程團隊協作。
               </p>
             </div>
           </RevealCard>
@@ -834,7 +834,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">GE Vernova</p>
               <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                擔任 GE 通霄電廠專案行政主管，運用數據分析輔助管理層預算維護與營運決策；優化供應商採購流程並統籌外籍工程團隊後勤。
+              工程專案行政主管、預算資料與供應商協作，支援外籍工程團隊營運。
               </p>
             </div>
           </RevealCard>
@@ -849,7 +849,7 @@ export default function Home() {
               </div>
               <p className="text-xs font-medium text-amber-700 dark:text-violet-400">Marubeni Corporation</p>
               <p className="text-sm text-stone-600 dark:text-slate-400 leading-relaxed">
-                擔任機械工程團隊行政，負責每日技術文件控管與現場施工紀錄彙整；作為日商團隊與外包廠商之溝通橋樑，傳遞工程資訊並協助主管掌握施工進度。
+              工程文件控管、施工紀錄整理及日商團隊與外包廠商間的資訊協調。
               </p>
             </div>
             </RevealCard>
