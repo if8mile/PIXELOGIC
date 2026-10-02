@@ -744,7 +744,7 @@ export default function Home() {
       <section id="experience" className="scroll-mt-24 space-y-8">
         <div className="space-y-2">
           <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Career History</h2>
-          <h3 className="text-2xl font-bold">Experience & Education</h3> 
+          <h3 className="text-2xl font-bold">Experience & Training</h3> 
         </div>
         
         <div className="space-y-8 border-l-2 border-stone-200 dark:border-slate-800 pl-6">
