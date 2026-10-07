@@ -3,6 +3,8 @@ import Image from 'next/image';
 import RevealCard from '../RevealCard';
 import { useState, useEffect } from 'react';
 import { ThemeToggle } from '../components/ThemeToggle';
+import ProofOfProgress from '../components/ProofOfProgress';
+import EatSelector from '../components/EatSelector';
 import {
   CheckCircle2, Circle, Droplets, BookOpen, Code, Dumbbell, Briefcase,
   Smile, Sparkles, Check, TreePine, Calendar, BarChart3, Award, Plus,
@@ -861,20 +863,27 @@ export default function Home() {
  
 
         {/* 3. Portfolio/互動小工具 Section */}
-        <section id="portfolio" className="scroll-mt-24 space-y-12">
-          <div className="space-y-2">
-            <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Interactive Project</h2>
-            <h3 className="text-2xl font-bold">幫助使用者透過這個屬於自己的秘密基地累積打卡證明建立成就感、自信心與安全感，希望大家不要忽略自己每天的小小努力。</h3>
-          </div>
+<section id="portfolio" className="scroll-mt-24 space-y-12">
+  <div className="space-y-2">
+    <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Interactive Project</h2>
+    <h3 className="text-2xl font-bold">幫助使用者透過這個屬於自己的秘密基地累積打卡證明建立成就感、自信心與安全感，希望大家不要忽略自己每天的小小努力。</h3>
+  </div>
 
-          {/* 成長森林 */}
-          <GrowthForestSection />
+  {/* 成長森林內容組件 */}
+  <ProofOfProgress />
+</section>
+
+{/* 2. 成長森林區塊 */}
+<GrowthForestSection />
 
           {/* What Should I Eat 抽籤工具 */}
           <div className="space-y-2">
             <h2 className="text-xs font-semibold uppercase tracking-widest text-amber-700 dark:text-violet-400">Interactive Project</h2>
             <h3 className="text-2xl font-bold">幫大（ㄗˋ）家（ㄐㄧˇ）解開世紀難題</h3>
           </div>
+
+          <EatSelector />
+
           <div className="max-w-xl mx-auto bg-white/70 dark:bg-slate-900/60 border border-stone-200/80 dark:border-slate-800 backdrop-blur-xl p-6 sm:p-8 rounded-3xl shadow-xl">
             <div className="text-center mb-6">
               <h4 className="text-xl font-extrabold text-amber-700 dark:text-violet-400 mb-1">今天吃什麼？</h4>
@@ -968,7 +977,6 @@ export default function Home() {
               </div>
             )}
           </div>
-        </section>
 
         {/* Contact Section */}
         <section id="contact" className="scroll-mt-24 space-y-6 text-center py-12 px-6 rounded-3xl border border-stone-200 dark:border-slate-700 bg-stone-100 dark:bg-slate-800 shadow-sm">
