@@ -119,7 +119,7 @@ export default function ProofOfProgress() {
           <div className="relative z-10 space-y-4">
             <h3 className="text-xs font-mono uppercase tracking-widest text-zinc-400">Developer&apos;s Note</h3>
             <blockquote className="text-base md:text-lg font-medium leading-relaxed text-zinc-800 dark:text-zinc-200">
-              &ldquo;不要一直想把事情做到完美，才覺得自己有點厲害。你已經很努力了，你已經做得很好了。我不是在誇獎你，我是在提醒你。&rdquo;
+              &ldquo;不要一直想把事情做到完美，才覺得自己有點用處。你已經很努力了，你已經做得很好了。我不是在誇獎你，我是在提醒你。&rdquo;
             </blockquote>
             <p className="text-sm text-zinc-600 dark:text-zinc-400 leading-relaxed pt-2 border-t border-zinc-200 dark:border-zinc-800">
               這段話，是身邊朋友經歷低潮與自我懷疑時，我常常對朋友說的話，卻常常忘記對自己說。我開發「我的成長森林」，就是希望把這份溫暖轉化為具體的系統。當你覺得自己停滯不前或懷疑自己時，希望這座森林能成為你的證明，提醒你：你沒有停止前進，你已經做得很好了。
