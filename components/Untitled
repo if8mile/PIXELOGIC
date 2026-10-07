@@ -1,0 +1,47 @@
+<section id="about" className="min-h-[calc(100vh-5rem)] flex flex-col justify-between py-12">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-end my-auto">
+            <div className="lg:col-span-7 space-y-6 lg:pb-4">
+              <div className="space-y-3">
+                <div className="space-y-1">
+                  <p className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight text-amber-700 dark:text-violet-400">
+                    Pixel 的美感，Logic 的架構 —
+                  </p>
+                  <p className="text-lg md:text-xl lg:text-2xl font-extrabold tracking-tight text-stone-800 dark:text-slate-200">
+                    我們以理性邏輯與感性設計，賦予數位專案獨特的高質感。
+                  </p>
+                </div>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold tracking-tight pt-2">
+                  Hi, I'm <span className="text-amber-700 dark:text-violet-400">Nara</span>.
+                </h1>
+                <p className="text-xl md:text-2xl font-medium text-stone-600 dark:text-slate-300">
+                  Bridging ideas and reality with thoughtful design.
+                </p>
+              </div>
+              <p className="max-w-2xl text-base text-stone-600 dark:text-slate-400 leading-relaxed">
+              從國小自學電腦拆裝到國中初探HTML，網頁與科技始終是我最渴望探索的領域。曾因「資工需要頂尖數學」的迷思而走向不同的專業，但在累積了數年不同產業及跨國工程專案管理的實戰經驗後，我發現自己最享受的依然是梳理複雜邏輯與解決問題的過程。2024年我決定重新擁抱當初對程式的熱忱，將過去磨練出的嚴謹專案控管與跨部門溝通能力，轉化為打造流暢數位體驗的前端開發技術。
+              </p>
+              <div className="flex flex-wrap gap-4 pt-2">
+                <button
+                  onClick={() => scrollToSection('experience')}
+                  className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg cursor-pointer"
+                >
+                  View Experience
+                </button>
+                <button
+                  onClick={() => scrollToSection('portfolio')}
+                  className="px-6 py-3 rounded-xl font-medium text-sm text-white bg-stone-900 hover:bg-stone-800 dark:bg-violet-600 dark:hover:bg-violet-500 transition-all shadow-lg cursor-pointer"
+                >
+                  Interactive Project
+                </button>
+              </div>
+            </div>
+            <div className="lg:col-span-5 flex justify-center lg:justify-end relative -translate-y-12">
+              <div className="absolute -inset-1 rounded-3xl bg-gradient-to-r from-amber-500 to-amber-700 dark:from-violet-600 dark:to-cyan-500 opacity-30 blur-2xl"></div>
+              <div className="relative p-3 rounded-3xl bg-white/70 dark:bg-slate-900/60 border border-stone-200 dark:border-white/10 backdrop-blur-xl shadow-2xl">
+                <div className="relative w-64 h-80 md:w-72 md:h-96 rounded-2xl overflow-hidden">
+                  <Image src="/IMG_8899.jpg" alt="Nara Profile" fill className="object-cover" priority />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
