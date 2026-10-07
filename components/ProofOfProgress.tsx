@@ -84,35 +84,49 @@ export default function ProofOfProgress() {
           </div>
         </section>
 
-        {/* 3. 技術架構 */}
-        <section className="space-y-6">
-          <h2 className="text-xl md:text-2xl font-semibold tracking-wide border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
-            3. 技術架構與資料庫設計
-          </h2>
-          
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
-            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
-              <div className="text-sm font-mono text-zinc-400 mb-1">Frontend</div>
-              <div className="text-medium font-medium">Next.js / React</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">TypeScript, Tailwind CSS, shadcn/ui</div>
-            </div>
-            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
-              <div className="text-sm font-mono text-zinc-400 mb-1">Backend & DB</div>
-              <div className="text-medium font-medium">Supabase</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">Auth, PostgreSQL, Storage, RLS</div>
-            </div>
-            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
-              <div className="text-sm font-mono text-zinc-400 mb-1">Data Viz</div>
-              <div className="text-medium font-medium">Recharts</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">成長週報與數據趨勢圖表</div>
-            </div>
-            <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
-              <div className="text-sm font-mono text-zinc-400 mb-1">Deployment</div>
-              <div className="text-medium font-medium">Vercel</div>
-              <div className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">& Supabase Cloud 雲端部署</div>
-            </div>
-          </div>
-        </section>
+        {/* 技術架構與資料庫設計 - 3 格橫向平分對齊 */}
+<div className="space-y-4">
+  <h4 className="text-lg font-bold text-stone-800 dark:text-slate-200">
+    技術架構與資料庫設計
+  </h4>
+  
+  <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+    
+    {/* 1. Frontend */}
+    <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-stone-200/80 dark:border-slate-800 backdrop-blur-xl space-y-2">
+      <span className="text-sm font-mono text-amber-700 dark:text-violet-400 font-semibold">
+        Frontend
+      </span>
+      <h5 className="text-base font-bold">Next.js / React</h5>
+      <p className="text-sm text-stone-500 dark:text-slate-400 leading-relaxed">
+        TypeScript, Tailwind CSS, Lucide Icons
+      </p>
+    </div>
+
+    {/* 2. Data Storage */}
+    <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-stone-200/80 dark:border-slate-800 backdrop-blur-xl space-y-2">
+      <span className="text-sm font-mono text-amber-700 dark:text-violet-400 font-semibold">
+        Data Storage
+      </span>
+      <h5 className="text-base font-bold">Local Storage</h5>
+      <p className="text-sm text-stone-500 dark:text-slate-400 leading-relaxed">
+        隱私優先、零載入延遲的本機資料持久化存取
+      </p>
+    </div>
+
+    {/* 3. Deployment */}
+    <div className="p-5 rounded-2xl bg-white/70 dark:bg-slate-900/60 border border-stone-200/80 dark:border-slate-800 backdrop-blur-xl space-y-2">
+      <span className="text-sm font-mono text-amber-700 dark:text-violet-400 font-semibold">
+        Deployment
+      </span>
+      <h5 className="text-base font-bold">Vercel</h5>
+      <p className="text-sm text-stone-500 dark:text-slate-400 leading-relaxed">
+        自動化 CI/CD 部署與邊緣網路託管
+      </p>
+    </div>
+
+  </div>
+</div>
 
         {/* 4. 開發者手記 */}
         <section className="mt-20 p-8 md:p-10 rounded-2xl bg-zinc-100/70 dark:bg-zinc-900/80 border border-zinc-200 dark:border-zinc-800 relative overflow-hidden">

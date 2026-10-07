@@ -63,14 +63,14 @@ export default function EatSelector() {
         {/* 3. 技術焦點 */}
         <section className="space-y-6">
           <h2 className="text-xl md:text-2xl font-semibold tracking-wide border-l-2 border-zinc-900 dark:border-zinc-100 pl-4">
-            3. 技術焦點 (Technical Highlights)
+            3. 技術架構與資料庫設計
           </h2>
           
           <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
               <div className="text-sm font-mono text-zinc-400 mb-1">State Mgmt</div>
               <div className="text-base md:text-lg font-medium">React State</div>
-              <div className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">多步驟表單與動態篩選狀態管理</div>
+              <div className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">多步驟漸進式表單與狀態管理</div>
             </div>
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
               <div className="text-sm font-mono text-zinc-400 mb-1">Interactive UI</div>
@@ -79,13 +79,13 @@ export default function EatSelector() {
             </div>
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
               <div className="text-sm font-mono text-zinc-400 mb-1">API Integration</div>
-              <div className="text-base md:text-lg font-medium">Map Services</div>
-              <div className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">周邊美食搜尋與地圖跳轉整合</div>
+              <div className="text-base md:text-lg font-medium">Google Maps Search Link</div>
+              <div className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">一鍵帶入關鍵字跳轉地圖查詢，手機端支援開啟 Native App</div>
             </div>
             <div className="p-4 rounded-xl bg-zinc-50 dark:bg-zinc-900/40 border border-zinc-200/60 dark:border-zinc-800/60">
               <div className="text-sm font-mono text-zinc-400 mb-1">Architecture</div>
-              <div className="text-base md:text-lg font-medium">Next.js</div>
-              <div className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">高效組件化架構與頁面渲染</div>
+              <div className="text-base md:text-lg font-medium">Next.js App Router</div>
+              <div className="text-sm text-zinc-600 dark:text-zinc-400 mt-1">組件化架構與頁面渲染</div>
             </div>
           </div>
         </section>
